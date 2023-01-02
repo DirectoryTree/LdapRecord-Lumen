@@ -31,8 +31,7 @@ class MakeLdapConfig extends Command
     /**
      * Create a new controller creator command instance.
      *
-     * @param Filesystem $files
-     *
+     * @param  Filesystem  $files
      * @return void
      */
     public function __construct(Filesystem $files)
@@ -71,8 +70,7 @@ class MakeLdapConfig extends Command
     /**
      * Determine if the given file / folder already exists.
      *
-     * @param string $path
-     *
+     * @param  string  $path
      * @return bool
      */
     protected function alreadyExists($path)
@@ -83,7 +81,7 @@ class MakeLdapConfig extends Command
     /**
      * Make the given directory path.
      *
-     * @param string $path
+     * @param  string  $path
      */
     protected function makeDirectory($path)
     {
@@ -93,8 +91,7 @@ class MakeLdapConfig extends Command
     /**
      * Get the contents of the given file.
      *
-     * @param string $path
-     *
+     * @param  string  $path
      * @return string
      */
     protected function getContents($path)
@@ -125,8 +122,7 @@ class MakeLdapConfig extends Command
     /**
      * Get the full LDAP configuration file path.
      *
-     * @param string $configPath
-     *
+     * @param  string  $configPath
      * @return string
      */
     protected function getLdapConfigPath($configPath)
