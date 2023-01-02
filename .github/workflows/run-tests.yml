@@ -17,6 +17,10 @@ jobs:
         dependency-version: [prefer-stable]
         exclude:
           - lumen: 9.*
+            php: 7.4
+          - lumen: 9.*
+            php: 7.3
+          - lumen: 9.*
             php: 7.2
           - lumen: 8.*
             php: 7.2
