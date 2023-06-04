@@ -24,7 +24,7 @@ class LdapServiceProviderTest extends TestCase
 
     public function test_connections_are_auto_loaded()
     {
-        $this->assertIsArray($connections = Container::getInstance()->all());
+        $this->assertIsArray($connections = Container::getInstance()->getConnections());
         $this->assertCount(1, $connections);
 
         $this->assertInstanceOf(Connection::class, $default = $connections['default']);

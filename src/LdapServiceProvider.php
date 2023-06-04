@@ -2,6 +2,7 @@
 
 namespace LdapRecord\Lumen;
 
+use Illuminate\Support\Facades\Event;
 use LdapRecord\Laravel\LdapServiceProvider as BaseServiceProvider;
 
 class LdapServiceProvider extends BaseServiceProvider
@@ -9,22 +10,28 @@ class LdapServiceProvider extends BaseServiceProvider
     /**
      * {@inheritDoc}
      */
-    protected function registerConfiguration()
+    protected function registerConfiguration(): void
     {
         $this->app->configure('ldap');
-
-        return $this;
     }
 
     /**
      * {@inheritDoc}
      */
-    protected function registerCommands()
+    protected function registerCommands(): void
     {
         parent::registerCommands();
 
         $this->commands([MakeLdapConfig::class]);
+    }
 
-        return $this;
+    /**
+     * {@inheritDoc}
+     */
+    protected function registerEventListeners(): void
+    {
+        if (! is_null(Event::getFacadeRoot())) {
+            parent::registerEventListeners();
+        }
     }
 }

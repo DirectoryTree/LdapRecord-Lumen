@@ -11,24 +11,10 @@ class LdapAuthServiceProvider extends BaseServiceProvider
     /**
      * {@inheritDoc}
      */
-    protected function registerAuthProvider()
+    protected function registerAuthProvider(): void
     {
         if (! is_null(Auth::getFacadeRoot())) {
             parent::registerAuthProvider();
         }
-
-        return $this;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    protected function registerEventListeners()
-    {
-        if (! is_null(Event::getFacadeRoot())) {
-            parent::registerEventListeners();
-        }
-
-        return $this;
     }
 }
