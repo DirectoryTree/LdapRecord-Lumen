@@ -9,17 +9,15 @@ class MakeLdapConfig extends Command
 {
     /**
      * The filesystem instance.
-     *
-     * @var \Illuminate\Filesystem\Filesystem
      */
-    protected $files;
+    protected Filesystem $files;
 
     /**
      * The console command name.
      *
      * @var string
      */
-    protected $name = 'make:ldap-config';
+    protected $name = 'ldap:make:config';
 
     /**
      * The console command description.
@@ -30,9 +28,6 @@ class MakeLdapConfig extends Command
 
     /**
      * Create a new controller creator command instance.
-     *
-     * @param  Filesystem  $files
-     * @return void
      */
     public function __construct(Filesystem $files)
     {
@@ -44,10 +39,12 @@ class MakeLdapConfig extends Command
     /**
      * Create the LDAP configuration file.
      */
-    public function handle()
+    public function handle(): int
     {
         if (! $this->files->exists($stubPath = $this->getStubPath())) {
-            return $this->error("Unable to retrieve LDAP configuration stub file from path [$stubPath]");
+            $this->error("Unable to retrieve LDAP configuration stub file from path [$stubPath]");
+
+            return static::FAILURE;
         }
 
         $publishPath = $this->getLdapConfigPath(
@@ -55,7 +52,9 @@ class MakeLdapConfig extends Command
         );
 
         if ($this->alreadyExists($publishPath)) {
-            return $this->error("LDAP configuration file already exists at path [$publishPath]");
+            $this->error("LDAP configuration file already exists at path [$publishPath]");
+
+            return static::INVALID;
         }
 
         if (! $this->alreadyExists($configPath)) {
@@ -65,67 +64,54 @@ class MakeLdapConfig extends Command
         $this->files->put($publishPath, $this->getContents($stubPath));
 
         $this->info("Successfully created LDAP configuration file at path [$publishPath]");
+
+        return static::SUCCESS;
     }
 
     /**
      * Determine if the given file / folder already exists.
-     *
-     * @param  string  $path
-     * @return bool
      */
-    protected function alreadyExists($path)
+    protected function alreadyExists(string $path): bool
     {
         return $this->files->exists($path);
     }
 
     /**
      * Make the given directory path.
-     *
-     * @param  string  $path
      */
-    protected function makeDirectory($path)
+    protected function makeDirectory(string $path): void
     {
         $this->files->makeDirectory($path);
     }
 
     /**
      * Get the contents of the given file.
-     *
-     * @param  string  $path
-     * @return string
      */
-    protected function getContents($path)
+    protected function getContents(string $path): string
     {
         return $this->files->get($path);
     }
 
     /**
      * Get the LDAP configuration file stub.
-     *
-     * @return string
      */
-    protected function getStubPath()
+    protected function getStubPath(): string
     {
         return base_path(implode(DIRECTORY_SEPARATOR, ['vendor', 'directorytree', 'ldaprecord-laravel', 'config', 'ldap.php']));
     }
 
     /**
      * Get the configuration folder path.
-     *
-     * @return string
      */
-    public function getConfigPath()
+    public function getConfigPath(): string
     {
         return base_path('config');
     }
 
     /**
      * Get the full LDAP configuration file path.
-     *
-     * @param  string  $configPath
-     * @return string
      */
-    protected function getLdapConfigPath($configPath)
+    protected function getLdapConfigPath(string $configPath): string
     {
         return $configPath.DIRECTORY_SEPARATOR.'ldap.php';
     }

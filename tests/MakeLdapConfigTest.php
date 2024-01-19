@@ -41,7 +41,7 @@ class MakeLdapConfigTest extends TestCase
 
     public function test_configuration_file_can_be_published()
     {
-        $this->artisan('make:ldap-config');
+        $this->artisan('ldap:make:config');
 
         $this->assertTrue(file_exists($this->configFilePath()));
         $this->assertTrue(file_exists($this->configFileFolder()));
