@@ -1,31 +1,38 @@
-<!-- readme.md -->
-
 <p align="center">
-    <img src="https://ldaprecord.com/logo.svg" width="400">
+    <img src="https://ldaprecord.com/logo.svg" width="300" alt="LdapRecord-Lumen">
 </p>
 
 <p align="center">Integrate LDAP into your Lumen application.</p>
 
 <p align="center">
-<a href="https://lumen.laravel.com"><img src="https://img.shields.io/badge/Built_for-Lumen-green.svg?style=flat-square"></a>
-<a href="https://github.com/DirectoryTree/LdapRecord-Lumen/actions"><img src="https://img.shields.io/github/actions/workflow/status/directorytree/ldaprecord-lumen/run-tests.yml?branch=master&style=flat-square"></a>
-<a href="https://packagist.org/packages/directorytree/ldaprecord-lumen"><img src="https://img.shields.io/packagist/dt/directorytree/ldaprecord-lumen.svg?style=flat-square"></a>
-<a href="https://packagist.org/packages/directorytree/ldaprecord-lumen"><img src="https://img.shields.io/packagist/v/directorytree/ldaprecord-lumen.svg?style=flat-square"></a>
-<a href="https://packagist.org/packages/directorytree/ldaprecord-lumen"><img src="https://img.shields.io/packagist/l/directorytree/ldaprecord-lumen.svg?style=flat-square"></a>
+    <a href="https://github.com/DirectoryTree/LdapRecord-Lumen/actions/workflows/run-tests.yml"><img src="https://img.shields.io/github/actions/workflow/status/DirectoryTree/LdapRecord-Lumen/run-tests.yml?branch=master&amp;style=flat-square" alt="Tests"></a>
+    <a href="https://packagist.org/packages/directorytree/ldaprecord-lumen"><img src="https://img.shields.io/packagist/dt/directorytree/ldaprecord-lumen.svg?style=flat-square" alt="Total Downloads"></a>
+    <a href="https://packagist.org/packages/directorytree/ldaprecord-lumen"><img src="https://img.shields.io/packagist/v/directorytree/ldaprecord-lumen.svg?style=flat-square" alt="Latest Version"></a>
+    <a href="https://github.com/DirectoryTree/LdapRecord-Lumen/blob/master/license.md"><img src="https://img.shields.io/github/license/DirectoryTree/LdapRecord-Lumen?style=flat-square" alt="License"></a>
 </p>
 
-<h4 align="center">
-<a href="https://ldaprecord.com/docs/laravel/v3/lumen#installation">Installation</a>
-<span> · </span>
-<a href="https://ldaprecord.com/docs/laravel/v3/lumen">Documentation</a>
-<span> · </span>
-<a href="https://github.com/DirectoryTree/LdapRecord-Lumen/discussions/new">Post a Question</a>
-</h4>
+<p align="center">
+    <a href="#installation">Installation</a>
+    <span> · </span>
+    <a href="https://ldaprecord.com/docs/laravel/v3/lumen">Documentation</a>
+    <span> · </span>
+    <a href="https://github.com/DirectoryTree/LdapRecord-Lumen/discussions/new">Post a Question</a>
+</p>
 
 ---
 
-<h3 align="center">LdapRecord-Lumen is Supportware™</h3>
+## Installation
 
-<p align="center">If you require support using LdapRecord-Lumen, a <a href="https://github.com/sponsors/stevebauman">sponsorship</a> is required :pray:</p>
+Install the package via Composer:
 
-<p align="center">Thank you for your understanding :heart:</p>
+```bash
+composer require directorytree/ldaprecord-lumen
+```
+
+See the [installation guide](https://ldaprecord.com/docs/laravel/v3/lumen#installation) for requirements and setup.
+
+## LdapRecord-Lumen is Supportware™
+
+If you require support using LdapRecord-Lumen, a [sponsorship](https://github.com/sponsors/stevebauman) is required :pray:
+
+Thank you for your understanding :heart:
